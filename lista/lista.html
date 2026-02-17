@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imóveis Disponíveis | La Terra Imóveis</title>
+   <link rel="icon" type="image/png" href="../img/favicon.png">
+
+<link rel="stylesheet" href="lista.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo La Terra Imóveis">
+    </div>
+
+    <h1 class="titulo-site">IMOBILIÁRIA LA TERRA</h1>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="imoveis.html">Imóveis</a>
+        <a href="#">Contato</a>
+    </nav>
+</header>
+
+<section class="titulo-pagina">
+    <h1>Imóveis Disponíveis</h1>
+    <p>Encontre o imóvel ideal para você</p>
+</section>
+
+<section class="filtros">
+    <input type="text" id="pesquisa" placeholder="Pesquisar imóvel...">
+
+    <select id="bairro">
+        <option value="">Todos os bairros</option>
+        <option value="Vale do Sol">Vale do Sol</option>
+        <option value="Jardim Canadá">Jardim Canadá</option>
+    </select>
+
+    <select id="ordenar">
+        <option value="">Ordenar por</option>
+        <option value="menor">Preço: menor para maior</option>
+        <option value="maior">Preço: maior para menor</option>
+    </select>
+</section>
+
+<section class="lista-imoveis" id="listaImoveis">
+
+    <!-- IMÓVEL 1 -->
+    <div class="card-imovel"
+         data-preco="890000"
+         data-bairro="Vale do Sol"
+         data-cidade="Belo Horizonte">
+
+        <img src="../imgcasa/casa1.png" alt="Casa Moderna com Piscina">
+
+        <div class="card-info">
+            <h3>Casa Moderna com Piscina</h3>
+            <p>Vale do Sol - Belo Horizonte</p>
+            <div class="preco">R$ 890.000</div>
+            <a href="#" class="btn-ver">Ver Imóvel</a>
+        </div>
+    </div>
+
+    <!-- IMÓVEL 2 -->
+    <div class="card-imovel"
+         data-preco="650000"
+         data-bairro="Jardim Canadá"
+         data-cidade="Nova Lima">
+
+        <img src="../imgcasa/casa4.png" alt="Casa Contemporânea">
+
+        <div class="card-info">
+            <h3>Casa Contemporânea</h3>
+            <p>Jardim Canadá - Nova Lima</p>
+            <div class="preco">R$ 650.000</div>
+            <a href="#" class="btn-ver">Ver Imóvel</a>
+        </div>
+    </div>
+
+</section>
+
+<script>
+const pesquisa = document.getElementById("pesquisa");
+const bairro = document.getElementById("bairro");
+const ordenar = document.getElementById("ordenar");
+const lista = document.getElementById("listaImoveis");
+
+function filtrar() {
+    const cards = document.querySelectorAll(".card-imovel");
+
+    cards.forEach(card => {
+        const titulo = card.querySelector("h3").innerText.toLowerCase();
+        const bairroCard = card.dataset.bairro;
+        const cidadeCard = card.dataset.cidade;
+        const busca = pesquisa.value.toLowerCase();
+
+        const matchBusca =
+            titulo.includes(busca) ||
+            bairroCard.toLowerCase().includes(busca) ||
+            cidadeCard.toLowerCase().includes(busca);
+
+        const matchBairro =
+            bairro.value === "" || bairroCard === bairro.value;
+
+        card.style.display = (matchBusca && matchBairro) ? "flex" : "none";
+    });
+}
+
+function ordenarPreco() {
+    const cards = Array.from(document.querySelectorAll(".card-imovel"));
+
+    cards.sort((a, b) => {
+        const precoA = parseInt(a.dataset.preco);
+        const precoB = parseInt(b.dataset.preco);
+
+        if (ordenar.value === "menor") return precoA - precoB;
+        if (ordenar.value === "maior") return precoB - precoA;
+        return 0;
+    });
+
+    cards.forEach(card => lista.appendChild(card));
+}
+
+pesquisa.addEventListener("input", filtrar);
+bairro.addEventListener("change", filtrar);
+ordenar.addEventListener("change", ordenarPreco);
+</script>
+
+</body>
+</html>

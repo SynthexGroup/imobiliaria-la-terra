@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Moderna com Piscina | La Terra Imóveis</title>
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header class="topo">
+
+    <!-- LOGO -->
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo">
+    </div>
+
+    <!-- TÍTULO CENTRAL -->
+    <h1 class="titulo-site">IMOBILIÁRIA LA TERRA</h1>
+
+    <!-- MENU -->
+    <nav class="menu">
+        <a href="../index.html">Início</a>
+        <a href="#">Imóveis</a>
+        <a href="#">Contato</a>
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+    <!-- GALERIA -->
+    <div class="galeria">
+        <img id="imagem-principal" src="../imgcasa/casa1.png" alt="Casa Moderna">
+
+        <div class="miniaturas">
+            <img src="../imgcasa/casa1.png" onclick="trocarImagem(this)">
+            <img src="../imgcasa/casa2.png" onclick="trocarImagem(this)">
+            <img src="../imgcasa/casa3.png" onclick="trocarImagem(this)">
+            <img src="../imgcasa/casa4.png" onclick="trocarImagem(this)">
+        </div>
+    </div>
+
+    <!-- INFORMAÇÕES -->
+    <div class="info">
+        <h1>Casa Moderna com Piscina</h1>
+        <div class="localizacao">📍 Bairro Vale do Sol</div>
+        <div class="preco">R$ 890.000</div>
+
+        <div class="caracteristicas">
+            <div>🛏 3 Quartos</div>
+            <div>🛁 2 Banheiros</div>
+            <div>🚗 2 Vagas</div>
+            <div>📐 250m²</div>
+        </div>
+
+        <div class="descricao">
+            Imóvel moderno com acabamento de alto padrão, área gourmet,
+            piscina, garagem ampla e excelente localização.
+            Ideal para quem busca conforto e sofisticação.
+        </div>
+
+        <a class="btn-whatsapp" href="https://wa.me/5599999999999" target="_blank">
+            Falar no WhatsApp
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 La Terra Imóveis | Todos os direitos reservados
+</footer>
+
+<script>
+function trocarImagem(elemento) {
+    document.getElementById("imagem-principal").src = elemento.src;
+}
+</script>
+
+</body>
+</html>

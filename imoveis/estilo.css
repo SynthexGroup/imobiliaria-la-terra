@@ -1,0 +1,201 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    background-color: #222;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* LOGO */
+.logo img {
+    height: 55px;
+    display: block;
+}
+
+/* TÍTULO CENTRAL */
+.titulo-site {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFA500;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* MENU */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #FFA500;
+}
+
+/* ================= CONTEÚDO ================= */
+
+.container {
+    width: 85%;
+    margin: 60px auto;
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* ================= GALERIA ================= */
+
+.galeria {
+    flex: 1;
+}
+
+#imagem-principal {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.miniaturas {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.miniaturas img {
+    width: 95px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.miniaturas img:hover {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+/* ================= INFORMAÇÕES ================= */
+
+.info {
+    flex: 1;
+}
+
+.info h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.localizacao {
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.preco {
+    font-size: 32px;
+    color: #FFA500;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.caracteristicas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.caracteristicas div {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    font-weight: 500;
+}
+
+.descricao {
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+/* ================= BOTÃO ================= */
+
+.btn-whatsapp {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.05);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #222;
+    color: white;
+    margin-top: 60px;
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0 20px;
+    }
+
+    .titulo-site {
+        font-size: 18px;
+    }
+
+    nav a {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+
+    .caracteristicas {
+        grid-template-columns: 1fr;
+    }
+
+    .miniaturas img {
+        width: 75px;
+        height: 60px;
+    }
+}
